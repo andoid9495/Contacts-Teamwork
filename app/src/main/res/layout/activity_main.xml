@@ -1,0 +1,345 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
+
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp">
+
+                        <EditText
+                            android:id="@+id/dial_editText"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="40dp"/>
+                    </ScrollView>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="30dp"
+                        android:background="#76564654"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:id="@+id/first_num_row"
+                                android:layout_height="65dp"
+                                android:background="#76564654"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/button1"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:text="1"
+                                    android:textSize="38dp"/>
+
+                                <Button
+                                    android:id="@+id/button2"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="2"
+                                    android:textSize="38dp"/>
+
+                                <Button
+                                    android:id="@+id/button3"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="3"
+                                    android:textSize="38dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:id="@+id/second_num_row"
+                                android:layout_height="65dp"
+                                android:background="#76564654"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/button4"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:text="4"
+                                    android:textSize="35dp"/>
+
+                                <Button
+                                    android:id="@+id/button5"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="5"
+                                    android:textSize="35dp"/>
+
+                                <Button
+                                    android:id="@+id/button6"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="6"
+                                    android:textSize="35dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:id="@+id/third_num_row"
+                                android:layout_height="65dp"
+                                android:background="#76564654"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/button7"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:text="7"
+                                    android:textSize="35dp"/>
+
+                                <Button
+                                    android:id="@+id/button8"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="8"
+                                    android:textSize="35dp"/>
+
+                                <Button
+                                    android:id="@+id/button9"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="9"
+                                    android:textSize="35dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:id="@+id/forth_num_row"
+                                android:layout_height="65dp"
+                                android:background="#76564654"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/button10"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:text="*"
+                                    android:textSize="35dp"/>
+
+                                <Button
+                                    android:id="@+id/button11"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="0"
+                                    android:textSize="35dp"/>
+
+                                <Button
+                                    android:id="@+id/button12"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:text="#"
+                                    android:textSize="35dp"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:id="@+id/fifth_numpad_row"
+                                android:layout_height="65dp"
+                                android:background="#76564654"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/button13"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:background="@drawable/sms"/>
+
+                                <Button
+                                    android:id="@+id/button14"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:background="@drawable/call"/>
+
+                                <Button
+                                    android:id="@+id/button15"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:background="@drawable/deletecharacter"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--<RelativeLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/editText_contactImage"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/human_icon"/>
+
+                   <EditText
+                       android:id="@+id/editText_contactName"
+                       android:layout_width="200dp"
+                       android:layout_height="wrap_content"
+                       android:hint="Name"/>
+
+                    <EditText
+                        android:id="@+id/editText_contactPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone"/>
+
+                    <EditText
+                        android:id="@+id/editText_contactEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"/>
+
+                    <EditText
+                        android:id="@+id/editText_contactAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Address"/>
+
+                    <Button
+                        android:id="@+id/button_addNewContact"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Add New Contact"/>
+
+                </RelativeLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView2">
+
+                        <ListView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/listView_callLogs"/>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Add New Contact"
+                            android:textColor="#000000"
+                            android:layout_marginTop="10dp"
+                            android:background="#ffefdb"
+                            android:id="@+id/button_addNewContact"/>
+                    </LinearLayout>
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView">
+
+                        <ListView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/listView_contactList"/>
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <GridView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:columnWidth="100dp"
+                        android:numColumns="auto_fit"
+                        android:id="@+id/gridView_contactImages"/>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>

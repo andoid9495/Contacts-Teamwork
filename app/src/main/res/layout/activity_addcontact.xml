@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView_ContactImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/human_icon"/>
+
+
+        <EditText
+            android:id="@+id/editText_ContactName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Name"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:id="@+id/editText_ContactPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Phone"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:id="@+id/editText_ContactEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Email"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:id="@+id/editText_ContactAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Address"
+            android:textSize="25dp"/>
+
+        <Button
+            android:id="@+id/button_saveNewContact"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="#f6f79b"
+            android:onClick="save"
+            android:text="Save"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+</ScrollView>
