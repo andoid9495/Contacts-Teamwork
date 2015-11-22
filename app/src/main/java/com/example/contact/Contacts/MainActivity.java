@@ -8,37 +8,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TabHost;
+
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    List<Contact> contactsList;
+    ArrayAdapter<Contact> contactList;
+    ListView listView;
     private static final int REQUEST_CODE=100;
+
+    ContactsDataSource dataSource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final EditText dial_editText = (EditText) findViewById(R.id.dial_editText);
-
-        dial_editText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                manager.hideSoftInputFromWindow(dial_editText.getWindowToken(), 0);
-            }
-
-        });
-
 
         //Tab Related Code
-        TabHost tabHost=(TabHost)findViewById(R.id.tabHost);
+        final TabHost tabHost=(TabHost)findViewById(R.id.tabHost);
         tabHost.setup();
-
-
 
         TabHost.TabSpec tabSpec=tabHost.newTabSpec("Dial");
         tabSpec.setContent(R.id.tab1);
@@ -63,6 +59,21 @@ public class MainActivity extends ActionBarActivity {
         tabHost.addTab(tabSpec);
 
         tabHost.setCurrentTab(2);
+
+        dataSource=new ContactsDataSource(this);
+        listView= (ListView) findViewById(R.id.listView_contactList);
+
+        final EditText dial_editText = (EditText) findViewById(R.id.dial_editText);
+
+        dial_editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                manager.hideSoftInputFromWindow(dial_editText.getWindowToken(), 0);
+            }
+
+        });
 
 
         Button button = (Button) findViewById(R.id.button1);
@@ -179,6 +190,8 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v)
             {
                 //send sms
+//                SmsManager smsManager = SmsManager.getDefault();
+//                smsManager.sendTextMessage("09171111111", null, "SMS text", null, null);
             }
         });
 
@@ -191,7 +204,7 @@ public class MainActivity extends ActionBarActivity {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 EditText temp=(EditText)findViewById(R.id.dial_editText);
                 String callNumber=temp.getText().toString();
-                callIntent.setData(Uri.parse(callNumber));
+                callIntent.setData(Uri.parse("tel:"+callNumber));
                 startActivity(callIntent);
             }
         });
@@ -212,15 +225,36 @@ public class MainActivity extends ActionBarActivity {
         });
 
         button=(Button)findViewById(R.id.button_addNewContact);
+
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(MainActivity.this,NewContact.class);
+
+                Intent intent = new Intent(MainActivity.this, AddNewContact.class);
                 startActivity(intent);
             }
         });
+
+
+        EditText searchContacts= (EditText) findViewById(R.id.editText_search_contacts);
+        searchContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        dataSource.open();
+
+        contactsList = dataSource.selectAll();
+        contactList = new ContactsListAdapter(getBaseContext(), R.layout.activity_list_item, contactsList);
+        listView.setAdapter(contactList);
+
+        dataSource.close();
+
 
 //        button=(Button)findViewById(R.id.button_addNewContact);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -246,6 +280,18 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        dataSource.open();
+
+        contactsList = dataSource.selectAll();
+        contactList = new ContactsListAdapter(getBaseContext(), R.layout.activity_list_item, contactsList);
+        listView.setAdapter(contactList);
+
+        dataSource.close();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -270,4 +316,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

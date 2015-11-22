@@ -47,23 +47,24 @@
                     </ScrollView>
 
                     <LinearLayout
+                        android:id="@+id/linearlayout_dialKeyboard"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="30dp"
-                        android:background="#76564654"
+                        android:background="#eed9c7"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
                                 android:id="@+id/first_num_row"
+                                android:layout_width="fill_parent"
                                 android:layout_height="65dp"
-                                android:background="#76564654"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
@@ -93,10 +94,9 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
                                 android:id="@+id/second_num_row"
+                                android:layout_width="fill_parent"
                                 android:layout_height="65dp"
-                                android:background="#76564654"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
@@ -126,10 +126,9 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
                                 android:id="@+id/third_num_row"
+                                android:layout_width="fill_parent"
                                 android:layout_height="65dp"
-                                android:background="#76564654"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
@@ -159,10 +158,9 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
                                 android:id="@+id/forth_num_row"
+                                android:layout_width="fill_parent"
                                 android:layout_height="65dp"
-                                android:background="#76564654"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
@@ -192,31 +190,35 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
                                 android:id="@+id/fifth_numpad_row"
+                                android:layout_width="fill_parent"
                                 android:layout_height="65dp"
-                                android:background="#76564654"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
                                 <Button
                                     android:id="@+id/button13"
-                                    android:layout_width="100dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="60dp"
+                                    android:layout_marginRight="10dp"
+                                    android:gravity="center"
                                     android:background="@drawable/sms"/>
 
                                 <Button
                                     android:id="@+id/button14"
-                                    android:layout_width="100dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="60dp"
-                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:gravity="center"
+                                    android:layout_marginRight="20dp"
                                     android:background="@drawable/call"/>
 
                                 <Button
                                     android:id="@+id/button15"
-                                    android:layout_width="100dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="60dp"
                                     android:layout_marginLeft="15dp"
+                                    android:gravity="center"
                                     android:background="@drawable/deletecharacter"/>
 
                             </LinearLayout>
@@ -276,14 +278,14 @@
                     android:orientation="vertical">
 
                     <ScrollView
+                        android:id="@+id/scrollView2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/scrollView2">
+                        android:layout_height="wrap_content">
 
                         <ListView
+                            android:id="@+id/listView_callLogs"
                             android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:id="@+id/listView_callLogs"/>
+                            android:layout_height="fill_parent"/>
                     </ScrollView>
                 </LinearLayout>
 
@@ -291,37 +293,54 @@
                     android:id="@+id/tab4"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical">
 
 
-                    <LinearLayout
-                        android:orientation="horizontal"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal"
-                        android:layout_height="wrap_content">
+                        android:layout_height="80dp"
+                        android:background="#ffefdb"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/editText_search_contacts"
+                            android:layout_width="260dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:drawableLeft="@drawable/search_contacts"
+                            android:hint="Search Contacts"
+                            android:textSize="20dp"/>
 
                         <Button
-                            android:layout_width="150dp"
+                            android:id="@+id/button_addNewContact"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/editText_search_contacts"
+                            android:background="@drawable/add_new_contact"
+                            android:textColor="#000000"/>
+
+                        <TextView
+                            android:id="@+id/textView_contactCounter"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Add New Contact"
-                            android:textColor="#000000"
-                            android:layout_marginTop="10dp"
-                            android:background="#ffefdb"
-                            android:id="@+id/button_addNewContact"/>
-                    </LinearLayout>
+                            android:layout_alignParentBottom="@+id/editText_search_contacts"
+                            android:layout_marginTop="60dp"
+                            android:hint="contact counter"
+                            android:textSize="14dp"/>
+                    </RelativeLayout>
 
-                    <ScrollView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/scrollView">
+                        android:layout_height="match_parent">
 
-                        <ListView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:id="@+id/listView_contactList"/>
-                    </ScrollView>
+                            <ListView
+                                android:id="@+id/listView_contactList"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -332,11 +351,11 @@
                     android:orientation="vertical">
 
                     <GridView
+                        android:id="@+id/gridView_contactImages"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:columnWidth="100dp"
-                        android:numColumns="auto_fit"
-                        android:id="@+id/gridView_contactImages"/>
+                        android:numColumns="auto_fit"/>
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
